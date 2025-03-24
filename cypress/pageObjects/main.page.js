@@ -26,10 +26,10 @@ export class MainPage extends FormPage {
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
   getPartnersLink = () =>
-    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 7000 });
+    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 10000 });
 
   clickContactUsLink() {
-    this.getContactUsLink().click({ force: true });
+    this.getContactUsLink().click();
     return this;
   }
   clickSignUpLink() {
@@ -69,7 +69,7 @@ export class MainPage extends FormPage {
     return this;
   }
   clickPartnersLink() {
-    this.getPartnersLink().click({ force: true });
+    this.getPartnersLink().click();
     return this;
   }
 }

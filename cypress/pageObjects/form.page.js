@@ -8,11 +8,11 @@ const companyName = faker.company.name();
 const companyPhone = faker.phone.number({ style: "international" });
 const phone = faker.number.int({ min: 100000000, max: 999999999 });
 const request = faker.lorem.words(2);
-const longPnoneNumber = faker.phone.number({ style: 'human' })
+const longPnoneNumber = faker.number.int({ min: 99999999999999 })
 const wrongEmailFormat = 'test@test@test.com';
 
 export class FormPage {
-  getFirstNameField = () => cy.get("#FirstName");
+  getFirstNameField = () => cy.get("#FirstName", {timeout: 7000});
   getLastNameField = () => cy.get("#LastName");
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");

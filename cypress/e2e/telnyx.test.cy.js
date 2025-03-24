@@ -15,7 +15,7 @@ const pricingPage = new PricingPage();
 const messagingPage = new MessagingPage();
 const partnerPage = new PartnerPage();
 
-context("Telnyx testing", () => {
+describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
   });
@@ -160,7 +160,7 @@ context("Telnyx testing", () => {
     partnerPage.clickSubmitButton();
     partnerPage
       .getInvalidPnoneMsg()
-      .should("contain", "Please enter a valid phone number");
+      .should("contain", "Phone numbers can have a maximum of 15 digits.");
     partnerPage
       .getInvalidPnoneMsg()
       .should("have.css", "color", "rgb(235, 0, 0)");

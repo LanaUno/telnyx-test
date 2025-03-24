@@ -7,9 +7,10 @@ const source = faker.lorem.word();
 const invalidEmail = "test&gmail.com";
 
 export class ContactUsPage extends FormPage {
-  getSupportOption = () =>
-    cy.get("select[id='Reason_for_Contact__c']", { timeout: 6000 })
-      .select("Support");
+  getSupportOption = () => 
+    cy.get("select[id='Reason_for_Contact__c']")
+      .select("Support", { force: true }).invoke('val')
+      .should('eq', 'Support')
   getWebsiteField = () => cy.get("#Website");
   getHowDidYouHearField = () =>
     cy.get("#How_did_you_hear_about_Telnyx_Open__c");
