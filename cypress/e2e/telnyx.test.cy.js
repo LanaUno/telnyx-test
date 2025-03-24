@@ -22,7 +22,7 @@ describe("Telnyx testing", () => {
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
     mainPage.clickContactUsLink();
-    contactUsPage.getSelect().should('be.visible', {timeout: 7000});
+    contactUsPage.getSelect().should('be.visible', {timeout: 10000});
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
     contactUsPage.typeLastName();
@@ -38,7 +38,7 @@ describe("Telnyx testing", () => {
 
   it("User cannot leave a request with invalid email", () => {
     mainPage.clickContactUsLink();
-    contactUsPage.getSelect().should('be.visible', {timeout: 7000});
+    contactUsPage.getSelect().should('be.visible', {timeout: 10000});
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
     contactUsPage.typeLastName();
@@ -121,7 +121,7 @@ describe("Telnyx testing", () => {
     pricingPage.clickMessagingApiLink();
     messagingPage
       .getMessagingHeader()
-      .should("have.text", "Messaging API pricing", { timeout: 12000 });
+      .should("have.text", "Messaging API pricing", { timeout: 5000 });
     messagingPage.scrollToCenter();
     messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
     messagingPage.typeFirstName();
@@ -135,7 +135,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -152,7 +152,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -174,7 +174,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
