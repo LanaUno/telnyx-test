@@ -22,6 +22,7 @@ describe("Telnyx testing", () => {
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
     mainPage.clickContactUsLink();
+    contactUsPage.getSelect().should('be.visible', {timeout: 7000});
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
     contactUsPage.typeLastName();
@@ -37,6 +38,7 @@ describe("Telnyx testing", () => {
 
   it("User cannot leave a request with invalid email", () => {
     mainPage.clickContactUsLink();
+    contactUsPage.getSelect().should('be.visible', {timeout: 7000});
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
     contactUsPage.typeLastName();
@@ -133,6 +135,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -149,6 +152,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -170,6 +174,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    partnerPage.getFirstNameField().should('be.visible', {timeout: 7000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
