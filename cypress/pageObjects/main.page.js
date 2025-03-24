@@ -4,13 +4,12 @@ import { FormPage } from "./form.page";
 
 const companyName = faker.company.name();
 const companyPhone = faker.phone.number({ style: "international" });
-const businessEmail = faker.internet.email();
 const wrongDomain = faker.internet.email();
 const website = faker.internet.domainName();
 
 export class MainPage extends FormPage {
   getContactUsLink = () =>
-    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
+    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]', {timeout: 7000});
   getSignUpLink = () => cy.get('div[class="c-dyVVFl"]>a[href="/sign-up"]');
   getBellCompanyName = () => cy.get("#business_name");
   getWrongDomain = () => cy.get("#domain");
@@ -26,7 +25,7 @@ export class MainPage extends FormPage {
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
   getPartnersLink = () =>
-    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 10000 });
+    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 4000 });
 
   clickContactUsLink() {
     this.getContactUsLink().click();

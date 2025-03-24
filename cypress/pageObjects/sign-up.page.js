@@ -2,7 +2,6 @@
 import { faker } from "@faker-js/faker";
 import { FormPage } from "./form.page";
 
-const businessEmail = faker.internet.email();
 const firstName = faker.person.firstName();
 const lastName = faker.person.lastName();
 const shortPassword = faker.internet.password({
