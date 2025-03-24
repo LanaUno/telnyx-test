@@ -23,7 +23,7 @@ describe("Telnyx testing", () => {
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
     mainPage.clickContactUsLink();
-    cy.wait(3000)
+    cy.wait(7000)
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
@@ -126,7 +126,7 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    cy.wait(5000)
+    cy.wait(7000)
     messagingPage.typeFirstName({force: true});
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
