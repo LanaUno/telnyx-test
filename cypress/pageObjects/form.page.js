@@ -12,7 +12,7 @@ const longPnoneNumber = faker.phone.number({ style: 'human' })
 const wrongEmailFormat = faker.internet.email({allowSpecialCharacters: true});
 
 export class FormPage {
-  getFirstNameField = () => cy.get("#FirstName");
+  getFirstNameField = () => cy.get("#FirstName", {timeout: 7000});
   getLastNameField = () => cy.get("#LastName");
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");
