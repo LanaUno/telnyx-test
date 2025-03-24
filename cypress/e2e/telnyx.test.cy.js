@@ -122,9 +122,9 @@ describe("Telnyx testing", () => {
     pricingPage.clickMessagingApiLink();
     messagingPage
       .getMessagingHeader()
-      .should("have.text", "Messaging API pricing", { timeout: 5000 });
+      .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
+    messagingPage.getFirstNameField().should("be.visible");
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();

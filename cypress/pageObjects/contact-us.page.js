@@ -8,7 +8,7 @@ const invalidEmail = "test&gmail.com";
 
 export class ContactUsPage extends FormPage {
   getSelect = () =>
-    cy.get('select[id="Reason_for_Contact__c"]').select("Select", {timeout: 15000});
+    cy.get('select[id="Reason_for_Contact__c"]', {timeout: 15000}).select("Select");
   getSupportOption = () =>
     cy
       .get('select[id="Reason_for_Contact__c"]')
