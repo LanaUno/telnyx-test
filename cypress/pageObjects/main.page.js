@@ -9,7 +9,7 @@ const website = faker.internet.domainName();
 
 export class MainPage extends FormPage {
   getContactUsLink = () =>
-    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]', {timeout: 7000});
+    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
   getSignUpLink = () => cy.get('div[class="c-dyVVFl"]>a[href="/sign-up"]');
   getBellCompanyName = () => cy.get("#business_name");
   getWrongDomain = () => cy.get("#domain");
