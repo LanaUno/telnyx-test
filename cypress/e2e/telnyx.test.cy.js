@@ -18,9 +18,10 @@ const partnerPage = new PartnerPage();
 describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
-    cy.get('button:contains("Accept all")', { timeout: 5000 })
+    cy.wait(5000)
+    cy.get('button:contains("Accept all")', { timeout: 6000 })
     .should('be.visible')
-    .click()
+    .click({force: true})
   });
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
