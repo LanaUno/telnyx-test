@@ -40,6 +40,7 @@ describe("Telnyx testing", () => {
 
   it("User cannot leave a request with invalid email", () => {
     mainPage.clickContactUsLink();
+    cy.wait(3000);
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
@@ -125,8 +126,8 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    cy.wait(3000)
-    messagingPage.typeFirstName();
+    cy.wait(5000)
+    messagingPage.typeFirstName({force: true});
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
     messagingPage.clickSubmitButton();
@@ -153,6 +154,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    cy.wait(5000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
