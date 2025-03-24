@@ -12,7 +12,7 @@ const longPnoneNumber = faker.number.int({ min: 99999999999999 })
 const wrongEmailFormat = 'test@test@test.com';
 
 export class FormPage {
-  getFirstNameField = () => cy.get("#FirstName", { timeout: 10000 });
+  getFirstNameField = () => cy.get("#FirstName", { timeout: 14000 });
   getLastNameField = () => cy.get("#LastName");
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");

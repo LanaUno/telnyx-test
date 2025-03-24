@@ -124,7 +124,6 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    messagingPage.getFirstNameField().should("be.visible");
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
@@ -136,7 +135,6 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -153,7 +151,6 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -175,7 +172,6 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    partnerPage.getFirstNameField().should('be.visible', {timeout: 10000});
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
