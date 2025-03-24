@@ -25,7 +25,7 @@ export class MainPage extends FormPage {
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
   getPartnersLink = () =>
-    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', {timeout: 5000});
+    cy.get('div>a[href="/partnerships"]');
 
   clickContactUsLink() {
     this.getContactUsLink().click();

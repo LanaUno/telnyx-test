@@ -18,7 +18,9 @@ const partnerPage = new PartnerPage();
 describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
-
+    cy.get('button:contains("Accept all")', { timeout: 5000 })
+    .should('be.visible')
+    .click()
   });
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
@@ -40,7 +42,7 @@ describe("Telnyx testing", () => {
 
   it("User cannot leave a request with invalid email", () => {
     mainPage.clickContactUsLink();
-    cy.wait(3000);
+    cy.wait(7000);
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
@@ -127,7 +129,7 @@ describe("Telnyx testing", () => {
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
     cy.wait(7000)
-    messagingPage.typeFirstName({force: true});
+    messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
     messagingPage.clickSubmitButton();
@@ -138,6 +140,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    cy.wait(5000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -176,6 +179,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
+    cy.wait(5000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
