@@ -166,7 +166,7 @@ context("Telnyx testing", () => {
       .should("have.css", "color", "rgb(235, 0, 0)");
   });
 
-  it.only("Wrong email format in Become a Partner Form", () => {
+  it("Wrong email format in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
