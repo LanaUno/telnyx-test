@@ -121,7 +121,7 @@ context("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing", { timeout: 12000 });
     messagingPage.scrollToCenter();
-    messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
+    // messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();

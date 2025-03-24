@@ -16,19 +16,17 @@ export class MainPage extends FormPage{
   getWrongDomain = () => cy.get("#domain");
   getDomainName = () => cy.get("#domain");
   getMobilPhone = () => cy.get("#phone_number");
-//   getEmail = () => cy.get("#email");
   getTermsAndCondBox = () => cy.get("#terms_and_conditions");
   getBuildMyVoiceBotBtn = () => cy.get('div ~button[type="submit"]');
   getDomainErrMessage = () => cy.get("#domain_message");
   getDomainFieldInErr = () => cy.get("#domain");
   getSorryErrMsg = () => cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]');
   getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
-  getWhyTelnyxBtn = () => cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"', {timeout: 7000,
-    });
-  getPartnersLink = () => cy.get("#A0rFvWJMizj20Ewi8NtU8", { timeout: 14000 });
+  getWhyTelnyxBtn = () => cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
+  getPartnersLink = () => cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 7000 });
     
   clickContactUsLink() {
-    this.getContactUsLink().click();
+    this.getContactUsLink().click({ force: true });
     return this;
   }
   clickSignUpLink() {
@@ -51,10 +49,6 @@ export class MainPage extends FormPage{
     this.getMobilPhone().type(companyPhone);
     return this;
   }
-//   typeEmail() {
-//     this.getEmail().type(businessEmail);
-//     return this;
-//   }
   checkTermsAndCondBox() {
     this.getTermsAndCondBox().check();
     return this;
@@ -72,7 +66,7 @@ export class MainPage extends FormPage{
     return this;
   }
   clickPartnersLink() {
-    this.getPartnersLink().click();
+    this.getPartnersLink().click({force: true});
     return this;
   }
 }

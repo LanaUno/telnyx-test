@@ -16,7 +16,7 @@ const source = faker.lorem.word();
 const invalidEmail = 'test&gmail.com'
 
 export class PartnerPage extends FormPage{
-    getBecomePartnerLink = () => cy.get('#7AeuoQUBii1Hm1wmqCy9c', { timeout: 7000 });
+    getBecomePartnerLink = () => cy.get('#7AeuoQUBii1Hm1wmqCy9c');
     getPartnerTypeOption = () =>
         cy.get('select[id="Form_Partner_Type__c"]', { timeout: 7000 })
           .select("SaaS / ISV / Tech");
