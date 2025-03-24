@@ -9,10 +9,10 @@ const companyPhone = faker.phone.number({ style: "international" });
 const phone = faker.number.int({ min: 100000000, max: 999999999 });
 const request = faker.lorem.words(2);
 const longPnoneNumber = faker.phone.number({ style: 'human' })
-const wrongEmailFormat = faker.internet.email({allowSpecialCharacters: true});
+const wrongEmailFormat = 'test@test@test.com';
 
 export class FormPage {
-  getFirstNameField = () => cy.get("#FirstName", {timeout: 7000});
+  getFirstNameField = () => cy.get("#FirstName");
   getLastNameField = () => cy.get("#LastName");
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");
@@ -20,7 +20,7 @@ export class FormPage {
   getPhoneNumberField = () => cy.get("#Phone_Number_Base__c");
   getAddInfoRequestField = () => cy.get("#Form_Additional_Information__c");
   getSubmitButton = () => cy.get('button[type="submit"]');
-  getWrongEmailFormat = () => cy.get("#Phone_Number_Base__c");
+  getWrongEmailFormat = () => cy.get("#Email");
   getInvalidEmailMsg = () => cy.get("#ValidMsgEmail");
   getEmailField = () => cy.get("#email");
  

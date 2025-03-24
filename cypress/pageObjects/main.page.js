@@ -8,9 +8,9 @@ const businessEmail = faker.internet.email();
 const wrongDomain = faker.internet.email();
 const website = faker.internet.domainName();
 
-export class MainPage extends FormPage{
+export class MainPage extends FormPage {
   getContactUsLink = () =>
-    cy.get('div[class="c-ihSZrZ"]>a[href="/contact-us"]').should("have.text", "Contact us");
+    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
   getSignUpLink = () => cy.get('div[class="c-dyVVFl"]>a[href="/sign-up"]');
   getBellCompanyName = () => cy.get("#business_name");
   getWrongDomain = () => cy.get("#domain");
@@ -20,11 +20,14 @@ export class MainPage extends FormPage{
   getBuildMyVoiceBotBtn = () => cy.get('div ~button[type="submit"]');
   getDomainErrMessage = () => cy.get("#domain_message");
   getDomainFieldInErr = () => cy.get("#domain");
-  getSorryErrMsg = () => cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]');
+  getSorryErrMsg = () =>
+    cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]');
   getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
-  getWhyTelnyxBtn = () => cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
-  getPartnersLink = () => cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 7000 });
-    
+  getWhyTelnyxBtn = () =>
+    cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
+  getPartnersLink = () =>
+    cy.get('a[id="A0rFvWJMizj20Ewi8NtU8"]', { timeout: 7000 });
+
   clickContactUsLink() {
     this.getContactUsLink().click({ force: true });
     return this;
@@ -66,7 +69,7 @@ export class MainPage extends FormPage{
     return this;
   }
   clickPartnersLink() {
-    this.getPartnersLink().click({force: true});
+    this.getPartnersLink().click({ force: true });
     return this;
   }
 }

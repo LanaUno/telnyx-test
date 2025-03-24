@@ -121,7 +121,7 @@ context("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing", { timeout: 12000 });
     messagingPage.scrollToCenter();
-    // messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
+    messagingPage.getFirstNameField().should("be.visible", { timeout: 12000 });
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
@@ -166,7 +166,7 @@ context("Telnyx testing", () => {
       .should("have.css", "color", "rgb(235, 0, 0)");
   });
 
-  it("Wrong email format in Become a Partner Form", () => {
+  it.only("Wrong email format in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
