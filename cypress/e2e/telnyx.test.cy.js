@@ -18,15 +18,13 @@ const partnerPage = new PartnerPage();
 describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
-    cy.wait(5000)
-    cy.get('button:contains("Accept all")', { timeout: 6000 })
+    cy.get('button:contains("Accept all")', { timeout: 7000 })
     .should('be.visible')
     .click({force: true})
   });
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
     mainPage.clickContactUsLink();
-    cy.wait(7000)
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
