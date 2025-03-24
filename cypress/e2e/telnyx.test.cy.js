@@ -17,7 +17,7 @@ const partnerPage = new PartnerPage();
 
 describe("Telnyx testing", () => {
   beforeEach(() => {
-    cy.visit("https://telnyx.com/", {timeout: 6000});
+    cy.visit("https://telnyx.com/");
 
   });
 
