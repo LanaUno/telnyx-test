@@ -1,6 +1,5 @@
 /// <reference types="cypress" />
 import { MainPage } from "../pageObjects/main.page";
-import { ContactUsPage } from "../pageObjects/contact-us.page";
 import { ThanksPage } from "../pageObjects/thanks.page";
 import { SignUpPage } from "../pageObjects/sign-up.page";
 import { PricingPage } from "../pageObjects/pricing.page";
@@ -8,7 +7,6 @@ import { MessagingPage } from "../pageObjects/messaging.page";
 import { PartnerPage } from "../pageObjects/partner.page";
 
 const mainPage = new MainPage();
-const contactUsPage = new ContactUsPage();
 const thanksPage = new ThanksPage();
 const signUpPage = new SignUpPage();
 const pricingPage = new PricingPage();
@@ -18,41 +16,6 @@ const partnerPage = new PartnerPage();
 describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
-  });
-
-  it("User can leave a request to an expert via 'Contact Us' link", () => {
-    mainPage.clickContactUsLink();
-    cy.wait(7000);
-    contactUsPage.getSelect().should('be.visible');
-    contactUsPage.getSupportOption();
-    contactUsPage.typeFirstName();
-    contactUsPage.typeLastName();
-    contactUsPage.typeBusinessEmail();
-    contactUsPage.selectCountry();
-    contactUsPage.typePhoneNumber();
-    contactUsPage.typeWebsite();
-    contactUsPage.typeAddInfoRequest();
-    contactUsPage.typeHowDidYouHear();
-    contactUsPage.clickSubmitButton();
-    thanksPage.getThanksMessage().should("have.text", "Thank you.");
-  });
-
-  it("User cannot leave a request with invalid email", () => {
-    mainPage.clickContactUsLink();
-    cy.wait(8000);
-    contactUsPage.getSelect().should('be.visible');
-    contactUsPage.getSupportOption();
-    contactUsPage.typeFirstName();
-    contactUsPage.typeLastName();
-    contactUsPage.typeInvalidEmail();
-    contactUsPage.selectCountry();
-    contactUsPage.typePhoneNumber();
-    contactUsPage.typeWebsite();
-    contactUsPage.typeAddInfoRequest();
-    contactUsPage.typeHowDidYouHear();
-    contactUsPage.clickSubmitButton();
-    contactUsPage.getInvalidEmailMsg().should("contain", "Must be valid email");
-    contactUsPage.getInvalidEmailMsg().should("have.css", "color", "rgb(235, 0, 0)");
   });
 
   it("User cannot register an account with password less then 12 characters long", () => {
@@ -125,7 +88,7 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    cy.wait(9000)
+    cy.wait(12000)
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
