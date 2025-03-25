@@ -5,12 +5,12 @@ import { SignUpPage } from "../pageObjects/sign-up.page";
 const mainPage = new MainPage();
 const signUpPage = new SignUpPage();
 
-describe("Telnyx testing", () => {
+describe("Testing register form", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
   });
 
-  it("User cannot register an account with password less then 12 characters long", () => {
+  it("Register an account with password less then 12 characters long", () => {
     mainPage.clickSignUpLink();
     signUpPage.typeEmail();
     signUpPage.typeFirstName();
@@ -44,7 +44,8 @@ describe("Telnyx testing", () => {
       .getFirstNameInErrField()
       .should("have.css", "border-color", "rgb(235, 0, 0)");
   });
-  it('Register an account with empty Last Name field', () => {
+
+  it("Register an account with empty Last Name field", () => {
     mainPage.clickSignUpLink();
     signUpPage.typeEmail();
     signUpPage.typeFirstName();
@@ -58,5 +59,5 @@ describe("Telnyx testing", () => {
     signUpPage
       .getLastNameInErrField()
       .should("have.css", "border-color", "rgb(235, 0, 0)");
-  })
+  });
 });

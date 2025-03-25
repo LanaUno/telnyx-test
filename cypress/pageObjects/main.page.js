@@ -18,22 +18,13 @@ export class MainPage extends FormPage {
   getDomainErrMessage = () => cy.get("#domain_message");
   getDomainFieldInErr = () => cy.get("#domain");
   getSorryErrMsg = () =>
-    cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]', { timeout: 5000});
-  // getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
-  getWhyTelnyxBtn = () =>
-    cy.get('button[id="radix-:R256jm:"]')
-  getPartnersLink = () =>
-    cy.get('div>a[href="/partnerships"]');
-  getGlobalCoverageBtn = () => cy.get('a:contains("Explore global coverage")')
+    cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]', {
+      timeout: 5000,
+    });
+  getWhyTelnyxBtn = () => cy.get('button[id="radix-:R256jm:"]');
+  getPartnersLink = () => cy.get('div>a[href="/partnerships"]');
+  getGlobalCoverageBtn = () => cy.get('a:contains("Explore global coverage")');
 
-  clickAcceptAll(){
-    this.getCookiesBanner().click()
-    return this
-  }
-  clickContactUsLink() {
-    this.getContactUsLink().click();
-    return this;
-  }
   clickSignUpLink() {
     this.getSignUpLink().click({ force: true });
     return this;
@@ -62,20 +53,16 @@ export class MainPage extends FormPage {
     this.getBuildMyVoiceBotBtn().click();
     return this;
   }
-  clickPricingLink() {
-    this.getPricingLink().click();
-    return this;
-  }
   clickWhyTelnyxBtn() {
     this.getWhyTelnyxBtn().click();
     return this;
   }
   clickPartnersLink() {
-    this.getPartnersLink().click( { force: true });
+    this.getPartnersLink().click({ force: true });
     return this;
   }
-  clickGlobalCoverageBtn(){
-    this.getGlobalCoverageBtn().click({ force: true})
-    return this
+  clickGlobalCoverageBtn() {
+    this.getGlobalCoverageBtn().click({ force: true });
+    return this;
   }
 }

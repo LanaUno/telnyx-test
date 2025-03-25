@@ -3,7 +3,7 @@ import { MainPage } from "../pageObjects/main.page";
 
 const mainPage = new MainPage();
 
-describe("Telnyx testing", () => {
+describe("Testing recieve a call form", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
   });
@@ -26,7 +26,7 @@ describe("Telnyx testing", () => {
       .should("have.css", "border-color", "rgb(235, 0, 0)");
   });
 
-  it("Fill the form to recieve a call with no checked Captcha", () => {
+  it("Fill the form with no checked Captcha", () => {
     mainPage.typeBellCompanyName();
     mainPage.typeDomainName();
     mainPage.typeMobilePhone();
@@ -35,6 +35,4 @@ describe("Telnyx testing", () => {
     mainPage.clickBuildMyVoiceBotBtn();
     mainPage.getSorryErrMsg().should("contain", "Sorry, there was an error");
   });
-
-  
 });
