@@ -14,7 +14,7 @@ describe('Telnyx form testing', () => {
     it('Explore Global coverage form', () => {
       cy.scrollTo('center')
       mainPage.clickGlobalCoverageBtn()
-      // globalPage.getFirstNameField().should('exist')
+      globalPage.getFirstNameField().should('exist')
       globalPage.typeFirstName()
       globalPage.typeLastName()
       globalPage.typeBusinessEmail()
@@ -24,7 +24,7 @@ describe('Telnyx form testing', () => {
     it('Explore Global Coverage form with invalid email format', () => {
         cy.scrollTo('center')
         mainPage.clickGlobalCoverageBtn()
-        // globalPage.getFirstNameField().should('exist')
+        globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeLastName()
         globalPage.typeWrongEmailFormat()
@@ -35,7 +35,7 @@ describe('Telnyx form testing', () => {
       it('Explore Global Coverage form with empty first name field', () => {
         cy.scrollTo('center')
         mainPage.clickGlobalCoverageBtn()
-        // globalPage.getLastNameField().should('exist')
+        globalPage.getLastNameField().should('exist')
         globalPage.typeLastName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()
@@ -46,7 +46,8 @@ describe('Telnyx form testing', () => {
 
       it('Explore Global Coverage form with empty last name field', () => {
         cy.scrollTo('center')
-        // globalPage.getFirstNameField().should('exist')
+        mainPage.clickGlobalCoverageBtn()
+        globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()

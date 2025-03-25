@@ -44,4 +44,19 @@ describe("Telnyx testing", () => {
       .getFirstNameInErrField()
       .should("have.css", "border-color", "rgb(235, 0, 0)");
   });
+  it('Register an account with empty Last Name field', () => {
+    mainPage.clickSignUpLink();
+    signUpPage.typeEmail();
+    signUpPage.typeFirstName();
+    signUpPage.typePassword();
+    signUpPage.checkTermsConditionsBox();
+    signUpPage.clickSingUpBtn();
+    signUpPage.getLastNameErrMsg().should("contain", "This field is required");
+    signUpPage
+      .getLastNameErrMsg()
+      .should("have.css", "color", "rgb(235, 0, 0)");
+    signUpPage
+      .getLastNameInErrField()
+      .should("have.css", "border-color", "rgb(235, 0, 0)");
+  })
 });

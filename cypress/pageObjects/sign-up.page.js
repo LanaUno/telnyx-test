@@ -24,7 +24,9 @@ export class SignUpPage extends FormPage {
   getPaswErrorLengthMsg = () => cy.get("#passwordMinLength");
   getPasswordInErrField = () => cy.get("#password");
   getFirstNameErrMsg = () => cy.get("#first_name_message");
+  getLastNameErrMsg = () => cy.get("#last_name_message");
   getFirstNameInErrField = () => cy.get("#first_name");
+  getLastNameInErrField = () => cy.get("#last_name");
 
   typeFirstName() {
     this.getFirstNameField().type(firstName);
