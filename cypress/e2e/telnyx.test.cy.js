@@ -125,7 +125,7 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    cy.wait(7000)
+    cy.wait(8000)
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
@@ -136,8 +136,9 @@ describe("Telnyx testing", () => {
   it("Become a Partner", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
-    partnerPage.clickBecomePartnerLink();
-    cy.wait(7000)
+    // partnerPage.clickBecomePartnerLink();
+    cy.scrollTo('0%','75%')
+    cy.wait(8000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -153,8 +154,9 @@ describe("Telnyx testing", () => {
   it("Too long Phone Number in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
-    partnerPage.clickBecomePartnerLink();
-    cy.wait(7000)
+    // partnerPage.clickBecomePartnerLink();
+    cy.scrollTo('0%','75%')
+    cy.wait(8000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -175,8 +177,9 @@ describe("Telnyx testing", () => {
   it("Wrong email format in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
-    partnerPage.clickBecomePartnerLink();
-    cy.wait(7000)
+    // partnerPage.clickBecomePartnerLink();
+    cy.scrollTo('0%','75%')
+    cy.wait(8000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();

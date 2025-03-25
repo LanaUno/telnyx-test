@@ -25,7 +25,7 @@ export class MainPage extends FormPage {
     cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]');
   getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
   getWhyTelnyxBtn = () =>
-    cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
+    cy.get('button[id="radix-:R256jm:"]');
   getPartnersLink = () =>
     cy.get('div>a[href="/partnerships"]', {timeout: 5000});
 
