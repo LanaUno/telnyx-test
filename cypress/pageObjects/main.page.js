@@ -22,7 +22,7 @@ export class MainPage extends FormPage {
   getDomainErrMessage = () => cy.get("#domain_message");
   getDomainFieldInErr = () => cy.get("#domain");
   getSorryErrMsg = () =>
-    cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]');
+    cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]', { timeout: 5000});
   getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"]')

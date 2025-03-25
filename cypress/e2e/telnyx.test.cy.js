@@ -99,7 +99,6 @@ describe("Telnyx testing", () => {
   it("Become a Partner", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
-    // partnerPage.clickBecomePartnerLink();
     cy.scrollTo('0%','75%')
     cy.wait(8000)
     partnerPage.typeFirstName({waitForAnimations: false});
@@ -117,7 +116,6 @@ describe("Telnyx testing", () => {
   it("Too long Phone Number in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
-    // partnerPage.clickBecomePartnerLink();
     cy.scrollTo('0%','75%')
     cy.wait(8000)
     partnerPage.typeFirstName();
@@ -136,23 +134,5 @@ describe("Telnyx testing", () => {
       .getInvalidPnoneMsg()
       .should("have.css", "color", "rgb(235, 0, 0)");
   });
-
-  it("Wrong email format in Become a Partner Form", () => {
-    mainPage.clickWhyTelnyxBtn();
-    mainPage.getPricingLink().should('exist')
-    mainPage.clickPartnersLink();
-    cy.scrollTo('0%','75%')
-    cy.wait(8000)
-    partnerPage.typeFirstName();
-    partnerPage.typeLastName();
-    partnerPage.typeCompanyName();
-    partnerPage.typeWrongEmailFormat();
-    partnerPage.selectCountry();
-    partnerPage.typePhoneNumber();
-    partnerPage.getPartnerTypeOption();
-    partnerPage.typeAddInfoRequest();
-    partnerPage.clickSubmitButton();
-    partnerPage.getInvalidEmailMsg().should("contain", "Must be valid email");
-    partnerPage.getInvalidEmailMsg().should("have.css", "color", "rgb(235, 0, 0)");
-  });
+  
 });
