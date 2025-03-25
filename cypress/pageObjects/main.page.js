@@ -8,6 +8,8 @@ const wrongDomain = faker.internet.email();
 const website = faker.internet.domainName();
 
 export class MainPage extends FormPage {
+  getCookiesBanner = () => cy.get('button:contains("Accept all")', { timeout: 7000 })
+  .should('be.visible');
   getContactUsLink = () =>
     cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
   getSignUpLink = () => cy.get('div[class="c-dyVVFl"]>a[href="/sign-up"]');
@@ -27,6 +29,10 @@ export class MainPage extends FormPage {
   getPartnersLink = () =>
     cy.get('div>a[href="/partnerships"]');
 
+  clickAcceptAll(){
+    this.getCookiesBanner().click()
+    return this
+  }
   clickContactUsLink() {
     this.getContactUsLink().click();
     return this;

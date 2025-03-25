@@ -18,13 +18,12 @@ const partnerPage = new PartnerPage();
 describe("Telnyx testing", () => {
   beforeEach(() => {
     cy.visit("https://telnyx.com/");
-    cy.get('button:contains("Accept all")', { timeout: 7000 })
-    .should('be.visible')
-    .click({force: true})
   });
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickContactUsLink();
+    cy.wait(7000);
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
@@ -40,6 +39,7 @@ describe("Telnyx testing", () => {
   });
 
   it("User cannot leave a request with invalid email", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickContactUsLink();
     cy.wait(7000);
     contactUsPage.getSelect().should('be.visible');
@@ -121,6 +121,7 @@ describe("Telnyx testing", () => {
   });
 
   it("Get pricing", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickPricingLink();
     pricingPage.clickMessagingApiLink();
     messagingPage
@@ -136,6 +137,7 @@ describe("Telnyx testing", () => {
   });
 
   it("Become a Partner", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
@@ -153,6 +155,7 @@ describe("Telnyx testing", () => {
   });
 
   it("Too long Phone Number in Become a Partner Form", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
@@ -175,6 +178,7 @@ describe("Telnyx testing", () => {
   });
 
   it("Wrong email format in Become a Partner Form", () => {
+    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
