@@ -13,7 +13,7 @@ const wrongEmailFormat = 'test@test@test.com';
 
 export class FormPage {
   getFirstNameField = () => cy.get("#FirstName", { timeout: 7000});
-  getLastNameField = () => cy.get("#LastName");
+  getLastNameField = () => cy.get("#LastName", { timeout: 7000});
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");
   getCountryExt = () => cy.get("#Phone_Number_Extension__c");

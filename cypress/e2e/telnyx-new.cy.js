@@ -24,6 +24,7 @@ describe('Telnyx form testing', () => {
     it('Explore AI form', () => {
       cy.scrollTo('center')
       cy.get('a:contains("Explore global coverage")').click()
+      globalPage.getFirstNameField().should('exist')
       globalPage.typeFirstName()
       globalPage.typeLastName()
       globalPage.typeBusinessEmail()
@@ -33,6 +34,7 @@ describe('Telnyx form testing', () => {
     it('Explore AI form with invalid email format', () => {
         cy.scrollTo('center')
         cy.get('a:contains("Explore global coverage")').click()
+        globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeLastName()
         globalPage.typeWrongEmailFormat()
@@ -43,6 +45,7 @@ describe('Telnyx form testing', () => {
       it('Explore AI form with empty first name field', () => {
         cy.scrollTo('center')
         cy.get('a:contains("Explore global coverage")').click()
+        globalPage.getLastNameField().should('exist')
         globalPage.typeLastName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()
@@ -54,6 +57,7 @@ describe('Telnyx form testing', () => {
       it('Explore AI form with empty last name field', () => {
         cy.scrollTo('center')
         cy.get('a:contains("Explore global coverage")').click()
+        globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()
