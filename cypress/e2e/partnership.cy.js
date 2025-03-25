@@ -16,7 +16,7 @@ describe("Telnyx testing", () => {
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     cy.scrollTo('0%','75%')
-    cy.wait(8000)
+    cy.wait(10000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();

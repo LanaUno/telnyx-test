@@ -11,22 +11,20 @@ describe('Telnyx form testing', () => {
     beforeEach(() => {
         cy.visit("https://telnyx.com/");
       });
-    it('Explore AI form', () => {
+    it('Explore Global coverage form', () => {
       cy.scrollTo('center')
       mainPage.clickGlobalCoverageBtn()
-      // cy.get('a:contains("Explore global coverage")').click({ force: true })
-      globalPage.getFirstNameField().should('exist')
+      // globalPage.getFirstNameField().should('exist')
       globalPage.typeFirstName()
       globalPage.typeLastName()
       globalPage.typeBusinessEmail()
       globalPage.clickSubmitButton()
       thanksPage.getThanksMessage().should("have.text", "Thank you.");
     })
-    it('Explore AI form with invalid email format', () => {
+    it('Explore Global Coverage form with invalid email format', () => {
         cy.scrollTo('center')
         mainPage.clickGlobalCoverageBtn()
-        // cy.get('a:contains("Explore global coverage")').click({ force: true })
-        globalPage.getFirstNameField().should('exist')
+        // globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeLastName()
         globalPage.typeWrongEmailFormat()
@@ -34,11 +32,10 @@ describe('Telnyx form testing', () => {
         globalPage.getInvalidEmailMsg().should("contain", "Must be valid email");
         
       })
-      it('Explore AI form with empty first name field', () => {
+      it('Explore Global Coverage form with empty first name field', () => {
         cy.scrollTo('center')
         mainPage.clickGlobalCoverageBtn()
-        // cy.get('a:contains("Explore global coverage")').click({ force: true })
-        globalPage.getLastNameField().should('exist')
+        // globalPage.getLastNameField().should('exist')
         globalPage.typeLastName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()
@@ -47,11 +44,9 @@ describe('Telnyx form testing', () => {
         
       })
 
-      it('Explore AI form with empty last name field', () => {
+      it('Explore Global Coverage form with empty last name field', () => {
         cy.scrollTo('center')
-        mainPage.clickGlobalCoverageBtn()
-        // cy.get('a:contains("Explore global coverage")').click({ force: true })
-        globalPage.getFirstNameField().should('exist')
+        // globalPage.getFirstNameField().should('exist')
         globalPage.typeFirstName()
         globalPage.typeBusinessEmail()
         globalPage.clickSubmitButton()
