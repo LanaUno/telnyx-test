@@ -27,7 +27,7 @@ export class MainPage extends FormPage {
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"] > span[class="c-swQxl"');
   getPartnersLink = () =>
-    cy.get('div>a[href="/partnerships"]');
+    cy.get('div>a[href="/partnerships"]', {timeout: 5000});
 
   clickAcceptAll(){
     this.getCookiesBanner().click()

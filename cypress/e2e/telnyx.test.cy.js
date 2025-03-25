@@ -21,7 +21,6 @@ describe("Telnyx testing", () => {
   });
 
   it("User can leave a request to an expert via 'Contact Us' link", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickContactUsLink();
     cy.wait(7000);
     contactUsPage.getSelect().should('be.visible');
@@ -39,7 +38,6 @@ describe("Telnyx testing", () => {
   });
 
   it("User cannot leave a request with invalid email", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickContactUsLink();
     cy.wait(7000);
     contactUsPage.getSelect().should('be.visible');
@@ -121,7 +119,6 @@ describe("Telnyx testing", () => {
   });
 
   it("Get pricing", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickPricingLink();
     pricingPage.clickMessagingApiLink();
     messagingPage
@@ -137,11 +134,10 @@ describe("Telnyx testing", () => {
   });
 
   it("Become a Partner", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    cy.wait(5000)
+    cy.wait(7000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -155,11 +151,10 @@ describe("Telnyx testing", () => {
   });
 
   it("Too long Phone Number in Become a Partner Form", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    cy.wait(5000)
+    cy.wait(7000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
@@ -178,11 +173,10 @@ describe("Telnyx testing", () => {
   });
 
   it("Wrong email format in Become a Partner Form", () => {
-    mainPage.clickAcceptAll()
     mainPage.clickWhyTelnyxBtn();
     mainPage.clickPartnersLink();
     partnerPage.clickBecomePartnerLink();
-    cy.wait(5000)
+    cy.wait(7000)
     partnerPage.typeFirstName();
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
