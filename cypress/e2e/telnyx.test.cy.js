@@ -39,7 +39,7 @@ describe("Telnyx testing", () => {
 
   it("User cannot leave a request with invalid email", () => {
     mainPage.clickContactUsLink();
-    cy.wait(7000);
+    cy.wait(8000);
     contactUsPage.getSelect().should('be.visible');
     contactUsPage.getSupportOption();
     contactUsPage.typeFirstName();
@@ -125,7 +125,7 @@ describe("Telnyx testing", () => {
       .getMessagingHeader()
       .should("have.text", "Messaging API pricing");
     messagingPage.scrollToCenter();
-    cy.wait(8000)
+    cy.wait(9000)
     messagingPage.typeFirstName();
     messagingPage.typeLastName();
     messagingPage.typeBusinessEmail();
