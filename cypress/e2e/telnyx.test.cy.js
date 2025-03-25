@@ -139,7 +139,7 @@ describe("Telnyx testing", () => {
     // partnerPage.clickBecomePartnerLink();
     cy.scrollTo('0%','75%')
     cy.wait(8000)
-    partnerPage.typeFirstName();
+    partnerPage.typeFirstName({waitForAnimations: false});
     partnerPage.typeLastName();
     partnerPage.typeCompanyName();
     partnerPage.typeBusinessEmail();
@@ -176,8 +176,8 @@ describe("Telnyx testing", () => {
 
   it("Wrong email format in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
+    mainPage.getPricingLink().should('exist')
     mainPage.clickPartnersLink();
-    // partnerPage.clickBecomePartnerLink();
     cy.scrollTo('0%','75%')
     cy.wait(8000)
     partnerPage.typeFirstName();
