@@ -8,10 +8,6 @@ const wrongDomain = faker.internet.email();
 const website = faker.internet.domainName();
 
 export class MainPage extends FormPage {
-  getCookiesBanner = () => cy.get('button:contains("Accept all")', { timeout: 5000 })
-  .should('be.visible');
-  getContactUsLink = () =>
-    cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
   getSignUpLink = () => cy.get('div[class="c-dyVVFl"]>a[href="/sign-up"]');
   getBellCompanyName = () => cy.get("#business_name");
   getWrongDomain = () => cy.get("#domain");
@@ -23,11 +19,12 @@ export class MainPage extends FormPage {
   getDomainFieldInErr = () => cy.get("#domain");
   getSorryErrMsg = () =>
     cy.get('div[class="c-iGQXTm"]>h3[class="c-PJLV c-rMlRu"]', { timeout: 5000});
-  getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
+  // getPricingLink = () => cy.get('button ~ a[href="/pricing"]');
   getWhyTelnyxBtn = () =>
     cy.get('button[id="radix-:R256jm:"]')
   getPartnersLink = () =>
     cy.get('div>a[href="/partnerships"]');
+  getGlobalCoverageBtn = () => cy.get('a:contains("Explore global coverage")')
 
   clickAcceptAll(){
     this.getCookiesBanner().click()
@@ -76,5 +73,9 @@ export class MainPage extends FormPage {
   clickPartnersLink() {
     this.getPartnersLink().click( { force: true });
     return this;
+  }
+  clickGlobalCoverageBtn(){
+    this.getGlobalCoverageBtn().click({ force: true})
+    return this
   }
 }
