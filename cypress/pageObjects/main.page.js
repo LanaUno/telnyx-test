@@ -8,7 +8,7 @@ const wrongDomain = faker.internet.email();
 const website = faker.internet.domainName();
 
 export class MainPage extends FormPage {
-  getCookiesBanner = () => cy.get('button:contains("Accept all")', { timeout: 7000 })
+  getCookiesBanner = () => cy.get('button:contains("Accept all")', { timeout: 5000 })
   .should('be.visible');
   getContactUsLink = () =>
     cy.get('header >div[class="c-ihSZrZ"]>a[href="/contact-us"]');
