@@ -1,5 +1,5 @@
 name: End-to-end tests
-on: push
+on: worfklow_dispatch
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
@@ -8,8 +8,3 @@ jobs:
         uses: actions/checkout@v4
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        with:
-          start: npm start
-          record: true
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
