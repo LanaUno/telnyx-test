@@ -7,7 +7,7 @@ const signUpPage = new SignUpPage();
 
 describe("Testing register form", () => {
   beforeEach(() => {
-    cy.visit("https://telnyx.com/");
+    mainPage.navigate();
   });
 
   it("Register an account with password less then 12 characters long", () => {
@@ -18,15 +18,11 @@ describe("Testing register form", () => {
     signUpPage.typeShortPassword();
     signUpPage.checkTermsConditionsBox();
     signUpPage.clickSingUpBtn();
-    signUpPage
-      .getPaswErrorLengthMsg()
-      .should("have.text", "Password must be at least 12 characters.");
-    signUpPage
-      .getPaswErrorLengthMsg()
-      .should("have.css", "color", "rgb(235, 0, 0)");
-    signUpPage
-      .getPasswordInErrField()
-      .should("have.css", "border-color", "rgb(235, 0, 0)");
+    signUpPage.validatePaswErrorLengthMsg(($message) => {
+      expect($message.text()).to.eq("Password must be at least 12 characters.");
+    });
+    signUpPage.validatePaswErrorMsgColor();
+    signUpPage.validatePaswErrBorderColorField();
   });
 
   it("Register an account with empty First Name field", () => {
@@ -36,13 +32,11 @@ describe("Testing register form", () => {
     signUpPage.typePassword();
     signUpPage.checkTermsConditionsBox();
     signUpPage.clickSingUpBtn();
-    signUpPage.getFirstNameErrMsg().should("contain", "This field is required");
-    signUpPage
-      .getFirstNameErrMsg()
-      .should("have.css", "color", "rgb(235, 0, 0)");
-    signUpPage
-      .getFirstNameInErrField()
-      .should("have.css", "border-color", "rgb(235, 0, 0)");
+    signUpPage.validateFirstNameErrMgs(($message) => {
+      expect($message.text()).to.eq("This field is required");
+    });
+    signUpPage.validateFirstNameErrMgsColor();
+    signUpPage.validateFirstNameErrBorderColor();
   });
 
   it("Register an account with empty Last Name field", () => {
@@ -52,12 +46,10 @@ describe("Testing register form", () => {
     signUpPage.typePassword();
     signUpPage.checkTermsConditionsBox();
     signUpPage.clickSingUpBtn();
-    signUpPage.getLastNameErrMsg().should("contain", "This field is required");
-    signUpPage
-      .getLastNameErrMsg()
-      .should("have.css", "color", "rgb(235, 0, 0)");
-    signUpPage
-      .getLastNameInErrField()
-      .should("have.css", "border-color", "rgb(235, 0, 0)");
+    signUpPage.validateLastNameErrMgs(($message) => {
+      expect($message.text()).to.eq("This field is required");
+    });
+    signUpPage.validateLastNameErrMgsColor();
+    signUpPage.validateLastNameErrBorderColor();
   });
 });

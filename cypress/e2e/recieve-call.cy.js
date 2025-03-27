@@ -5,7 +5,7 @@ const mainPage = new MainPage();
 
 describe("Testing recieve a call form", () => {
   beforeEach(() => {
-    cy.visit("https://telnyx.com/");
+    mainPage.navigate();
   });
 
   it("Fill the form with wrong Domain type", () => {
@@ -15,15 +15,11 @@ describe("Testing recieve a call form", () => {
     mainPage.typeEmail();
     mainPage.checkTermsAndCondBox();
     mainPage.clickBuildMyVoiceBotBtn();
-    mainPage
-      .getDomainErrMessage()
-      .should("contain", "Please enter a valid Domain name.");
-    mainPage
-      .getDomainErrMessage()
-      .should("have.css", "color", "rgb(235, 0, 0)");
-    mainPage
-      .getDomainFieldInErr()
-      .should("have.css", "border-color", "rgb(235, 0, 0)");
+    mainPage.validateDomainNameErrMsg(($message) => {
+      expect($message.text()).to.eq("Please enter a valid Domain name.");
+    });
+    mainPage.validateDomainNameErrMsgColor();
+    mainPage.validateDomainNameBorderColor();
   });
 
   it("Fill the form with no checked Captcha", () => {
@@ -33,6 +29,8 @@ describe("Testing recieve a call form", () => {
     mainPage.typeEmail();
     mainPage.checkTermsAndCondBox();
     mainPage.clickBuildMyVoiceBotBtn();
-    mainPage.getSorryErrMsg().should("contain", "Sorry, there was an error");
+    mainPage.validateSorryErrMsg(($message) => {
+      expect($message.text()).to.eq("Sorry, there was an error");
+    });
   });
 });

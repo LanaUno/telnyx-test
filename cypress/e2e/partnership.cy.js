@@ -7,7 +7,7 @@ const partnerPage = new PartnerPage();
 
 describe("Testing Become a parnter form", () => {
   beforeEach(() => {
-    cy.visit("https://telnyx.com/");
+    mainPage.navigate();
   });
 
   it("Too long Phone Number in Become a Partner Form", () => {
@@ -24,11 +24,11 @@ describe("Testing Become a parnter form", () => {
     partnerPage.getPartnerTypeOption();
     partnerPage.typeAddInfoRequest();
     partnerPage.clickSubmitButton();
-    partnerPage
-      .getInvalidPnoneMsg()
-      .should("contain", "Phone numbers can have a maximum of 15 digits.");
-    partnerPage
-      .getInvalidPnoneMsg()
-      .should("have.css", "color", "rgb(235, 0, 0)");
+    partnerPage.validateInvalidPhoneMsg(($message) => {
+      expect($message.text()).to.eq(
+        "Phone numbers can have a maximum of 15 digits."
+      );
+    });
+    partnerPage.validateInvalidPhoneMsgColor();
   });
 });

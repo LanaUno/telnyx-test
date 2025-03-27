@@ -8,12 +8,12 @@ const companyName = faker.company.name();
 const companyPhone = faker.phone.number({ style: "international" });
 const phone = faker.number.int({ min: 100000000, max: 999999999 });
 const request = faker.lorem.words(2);
-const longPnoneNumber = faker.number.int({ min: 999999999999999 })
-const wrongEmailFormat = 'test@test@test.com';
+const longPnoneNumber = faker.number.int({ min: 999999999999999 });
+const wrongEmailFormat = "test@test@test.com";
 
 export class FormPage {
-  getFirstNameField = () => cy.get("#FirstName", { timeout: 13000});
-  getLastNameField = () => cy.get("#LastName", { timeout: 12000});
+  getFirstNameField = () => cy.get("#FirstName", { timeout: 13000 });
+  getLastNameField = () => cy.get("#LastName", { timeout: 12000 });
   getBusinessEmailField = () => cy.get("#Email");
   getCompanyName = () => cy.get("#Company");
   getCountryExt = () => cy.get("#Phone_Number_Extension__c");
@@ -23,7 +23,7 @@ export class FormPage {
   getWrongEmailFormat = () => cy.get("#Email");
   getInvalidEmailMsg = () => cy.get("#ValidMsgEmail");
   getEmailField = () => cy.get("#email");
- 
+
   typeFirstName() {
     this.getFirstNameField().type(firstName);
     return this;

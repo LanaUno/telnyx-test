@@ -9,7 +9,7 @@ const thanksPage = new ThanksPage();
 
 describe("Testing Global coverage form", () => {
   beforeEach(() => {
-    cy.visit("https://telnyx.com/");
+    mainPage.navigate();
   });
 
   it("Explore Global coverage form", () => {
@@ -20,7 +20,9 @@ describe("Testing Global coverage form", () => {
     globalPage.typeLastName();
     globalPage.typeBusinessEmail();
     globalPage.clickSubmitButton();
-    thanksPage.getThanksMessage().should("have.text", "Thank you.");
+    thanksPage.validateThanksMessageExist(($message) => {
+      expect($message.text()).to.have.string("Thank you.");
+    });
   });
 
   it("Explore Global Coverage form with invalid email format", () => {
@@ -31,7 +33,9 @@ describe("Testing Global coverage form", () => {
     globalPage.typeLastName();
     globalPage.typeWrongEmailFormat();
     globalPage.clickSubmitButton();
-    globalPage.getInvalidEmailMsg().should("contain", "Must be valid email");
+    globalPage.validateErrEmailMsg(($message) => {
+      expect($message.text()).to.eq("Must be valid email");
+    });
   });
 
   it("Explore Global Coverage form with empty first name field", () => {
@@ -41,12 +45,10 @@ describe("Testing Global coverage form", () => {
     globalPage.typeLastName();
     globalPage.typeBusinessEmail();
     globalPage.clickSubmitButton();
-    globalPage
-      .getValidMsgFirstName()
-      .should("contain", "This field is required.");
-    globalPage
-      .getValidMsgFirstName()
-      .should("have.css", "color", "rgb(235, 0, 0)");
+    globalPage.validateErrFirstNameMsg(($message) => {
+      expect($message.text()).to.eq("This field is required.");
+    });
+    globalPage.validateErrFirstNameMsgColor();
   });
 
   it("Explore Global Coverage form with empty last name field", () => {
@@ -56,11 +58,9 @@ describe("Testing Global coverage form", () => {
     globalPage.typeFirstName();
     globalPage.typeBusinessEmail();
     globalPage.clickSubmitButton();
-    globalPage
-      .getValidMsgLastName()
-      .should("contain", "This field is required.");
-    globalPage
-      .getValidMsgLastName()
-      .should("have.css", "color", "rgb(235, 0, 0)");
+    globalPage.validateErrLastNameMsg(($message) => {
+      expect($message.text()).to.eq("This field is required.");
+    });
+    globalPage.validateErrLastNameMsgColor();
   });
 });

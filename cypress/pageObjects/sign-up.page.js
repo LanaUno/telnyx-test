@@ -22,11 +22,8 @@ export class SignUpPage extends FormPage {
   getTersmConditionsBox = () => cy.get("#terms_and_conditions");
   getSignUpBtn = () => cy.get('button[type="submit"]').contains("SIGN UP");
   getPaswErrorLengthMsg = () => cy.get("#passwordMinLength");
-  getPasswordInErrField = () => cy.get("#password");
   getFirstNameErrMsg = () => cy.get("#first_name_message");
   getLastNameErrMsg = () => cy.get("#last_name_message");
-  getFirstNameInErrField = () => cy.get("#first_name");
-  getLastNameInErrField = () => cy.get("#last_name");
 
   typeFirstName() {
     this.getFirstNameField().type(firstName);
@@ -50,6 +47,57 @@ export class SignUpPage extends FormPage {
   }
   clickSingUpBtn() {
     this.getSignUpBtn().click();
+    return this;
+  }
+  validatePaswErrorLengthMsg() {
+    this.getPaswErrorLengthMsg().should(
+      "have.text",
+      "Password must be at least 12 characters."
+    );
+    return this;
+  }
+  validatePaswErrorMsgColor() {
+    this.getPaswErrorLengthMsg().should("have.css", "color", "rgb(235, 0, 0)");
+    return this;
+  }
+  validatePaswErrBorderColorField() {
+    this.getPasswordField().should(
+      "have.css",
+      "border-color",
+      "rgb(235, 0, 0)"
+    );
+    return this;
+  }
+  validateFirstNameErrMgs() {
+    this.getFirstNameErrMsg().should("contain", "This field is required");
+    return this;
+  }
+  validateFirstNameErrMgsColor() {
+    this.getFirstNameErrMsg().should("have.css", "color", "rgb(235, 0, 0)");
+    return this;
+  }
+  validateFirstNameErrBorderColor() {
+    this.getFirstNameField().should(
+      "have.css",
+      "border-color",
+      "rgb(235, 0, 0)"
+    );
+    return this;
+  }
+  validateLastNameErrMgs() {
+    this.getLastNameErrMsg().should("contain", "This field is required");
+    return this;
+  }
+  validateLastNameErrMgsColor() {
+    this.getLastNameErrMsg().should("have.css", "color", "rgb(235, 0, 0)");
+    return this;
+  }
+  validateLastNameErrBorderColor() {
+    this.getLastNameField().should(
+      "have.css",
+      "border-color",
+      "rgb(235, 0, 0)"
+    );
     return this;
   }
 }
