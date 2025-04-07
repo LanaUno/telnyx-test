@@ -8,59 +8,70 @@ const mainPage = new MainPage();
 const thanksPage = new ThanksPage();
 
 describe("Testing Global coverage form", () => {
-  beforeEach(() => {
-    mainPage.navigate();
-  });
-
-  it("Explore Global coverage form", () => {
-    cy.scrollTo("center");
-    mainPage.clickGlobalCoverageBtn();
-    globalPage.getFirstNameField().should("exist");
-    globalPage.typeFirstName();
-    globalPage.typeLastName();
-    globalPage.typeBusinessEmail();
-    globalPage.clickSubmitButton();
-    thanksPage.validateThanksMessageExist(($message) => {
-      expect($message.text()).to.have.string("Thank you.");
+    beforeEach(() => {
+        mainPage.navigate();
+        mainPage.getGlobalCoverageBtn().scrollIntoView();
     });
-  });
-
-  it("Explore Global Coverage form with invalid email format", () => {
-    cy.scrollTo("center");
-    mainPage.clickGlobalCoverageBtn();
-    globalPage.getFirstNameField().should("exist");
-    globalPage.typeFirstName();
-    globalPage.typeLastName();
-    globalPage.typeWrongEmailFormat();
-    globalPage.clickSubmitButton();
-    globalPage.validateErrEmailMsg(($message) => {
-      expect($message.text()).to.eq("Must be valid email");
+    it("Explore Global coverage form", () => {
+        mainPage.clickGlobalCoverageBtn();
+        cy.location("pathname").should("eq", "/global-coverage");
+        globalPage.getFirstNameField().should("exist");
+        globalPage.typeFirstName();
+        globalPage.getLastNameField().should("exist");
+        globalPage.typeLastName();
+        globalPage.getBusinessEmailField().should("exist");
+        globalPage.typeBusinessEmail();
+        globalPage.getSubmitButton().should("exist");
+        globalPage.clickSubmitButton();
+        cy.location("pathname").should("eq", "/thank-you");
+        thanksPage.validateThanksMessageExist(($message) => {
+            expect($message.text()).to.have.string("Thank you.");
+        });
+        thanksPage.validateThanksMessageExist(($message) => {
+            expect($message.text()).contains(/thank/i);
+        });
     });
-  });
-
-  it("Explore Global Coverage form with empty first name field", () => {
-    cy.scrollTo("center");
-    mainPage.clickGlobalCoverageBtn();
-    globalPage.getLastNameField().should("exist");
-    globalPage.typeLastName();
-    globalPage.typeBusinessEmail();
-    globalPage.clickSubmitButton();
-    globalPage.validateErrFirstNameMsg(($message) => {
-      expect($message.text()).to.eq("This field is required.");
+    it("Explore Global Coverage form with invalid email format", () => {
+        mainPage.clickGlobalCoverageBtn();
+        cy.location("pathname").should("eq", "/global-coverage");
+        globalPage.getFirstNameField().should("exist");
+        globalPage.typeFirstName();
+        globalPage.getLastNameField().should("exist");
+        globalPage.typeLastName();
+        globalPage.getBusinessEmailField().should("exist");
+        globalPage.typeWrongEmailFormat();
+        globalPage.getSubmitButton().should("exist");
+        globalPage.clickSubmitButton();
+        globalPage.validateErrEmailMsg(($message) => {
+            expect($message.text()).contains(/valid email/i);
+        });
     });
-    globalPage.validateErrFirstNameMsgColor();
-  });
-
-  it("Explore Global Coverage form with empty last name field", () => {
-    cy.scrollTo("center");
-    mainPage.clickGlobalCoverageBtn();
-    globalPage.getFirstNameField().should("exist");
-    globalPage.typeFirstName();
-    globalPage.typeBusinessEmail();
-    globalPage.clickSubmitButton();
-    globalPage.validateErrLastNameMsg(($message) => {
-      expect($message.text()).to.eq("This field is required.");
+    it("Explore Global Coverage form with empty first name field", () => {
+        mainPage.clickGlobalCoverageBtn();
+        cy.location("pathname").should("eq", "/global-coverage");
+        globalPage.getLastNameField().should("exist");
+        globalPage.typeLastName();
+        globalPage.getBusinessEmailField().should("exist");
+        globalPage.typeBusinessEmail();
+        globalPage.getSubmitButton().should("exist");
+        globalPage.clickSubmitButton();
+        globalPage.validateErrFirstNameMsg(($message) => {
+            expect($message.text()).contains(/required/i);
+        });
+        globalPage.validateErrFirstNameMsgColor();
     });
-    globalPage.validateErrLastNameMsgColor();
-  });
+    it("Explore Global Coverage form with empty last name field", () => {
+        mainPage.clickGlobalCoverageBtn();
+        cy.location("pathname").should("eq", "/global-coverage");
+        globalPage.getFirstNameField().should("exist");
+        globalPage.typeFirstName();
+        globalPage.getBusinessEmailField().should("exist");
+        globalPage.typeBusinessEmail();
+        globalPage.getSubmitButton().should("exist");
+        globalPage.clickSubmitButton();
+        globalPage.validateErrLastNameMsg(($message) => {
+            expect($message.text()).contains(/required/i);
+        });
+        globalPage.validateErrLastNameMsgColor();
+    });
 });

@@ -6,13 +6,13 @@ Prepare and test
 2. NPM version 10.7.0
 3. Clone repository https://github.com/LanaUno/telnyx-test.git
 4. Go to the folder telnyx-test: cd ./telnyx-test
-5. Install cypress 
+5. Install cypress
 
-   npm install cypress --save-dev
+    npm install cypress --save-dev
 
 6. To install all dependencies use npm install
 7. Run 'npx cypress open' in the command line to run tests
 
+8. To run tests in Firefox browser use this command in terminal:
 
-
-
+npx cypress open --e2e --config-file configs/cypress.firefox.config.js

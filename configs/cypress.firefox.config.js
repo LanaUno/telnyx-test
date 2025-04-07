@@ -5,6 +5,7 @@ module.exports = defineConfig({
   viewportWidth: 1920,
   viewportHeight: 1080,
   chromeWebSecurity: false,
+  defaultBrowser: 'firefox',
   e2e: {
     baseUrl: 'https://telnyx.com/',
     setupNodeEvents(on, config) {

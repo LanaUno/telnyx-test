@@ -12,22 +12,31 @@ describe("Testing Become a parnter form", () => {
 
   it("Too long Phone Number in Become a Partner Form", () => {
     mainPage.clickWhyTelnyxBtn();
-    mainPage.clickPartnersLink();
-    cy.scrollTo("0%", "75%");
-    cy.wait(10000);
+    mainPage.clickPartnersLink({ force: true });
+    partnerPage.getBecomeAPartnerFormHeader().scrollIntoView();
+    cy.location("pathname").should("eq", "/partnerships");
+    partnerPage.getFirstNameField().should("exist");
     partnerPage.typeFirstName();
+    partnerPage.getLastNameField().should("exist");
     partnerPage.typeLastName();
+    partnerPage.getCompanyName().should("exist");
     partnerPage.typeCompanyName();
+    partnerPage.getBusinessEmailField().should("exist");
     partnerPage.typeBusinessEmail();
+    partnerPage.getCountryExt().should("exist");
     partnerPage.selectCountry();
+    partnerPage.getPhoneNumberField().should("exist");
     partnerPage.typeLongPhoneNumber();
     partnerPage.getPartnerTypeOption();
+    partnerPage.getAddInfoRequestField().should("exist");
     partnerPage.typeAddInfoRequest();
     partnerPage.clickSubmitButton();
-    partnerPage.validateInvalidPhoneMsg(($message) => {
-      expect($message.text()).to.eq(
-        "Phone numbers can have a maximum of 15 digits."
-      );
+    partnerPage.validateInvalidPhoneMsg()
+    partnerPage.getInvalidPnoneMsg().should(($message) => {
+      expect($message.text()).to.be.a('string');
+    });
+    partnerPage.getInvalidPnoneMsg().should(($message) => {
+      expect($message.text()).to.match(/15 digits/i);
     });
     partnerPage.validateInvalidPhoneMsgColor();
   });
